@@ -35,7 +35,7 @@ stockflow-api/
 Case Study Document:
 
 This repository includes a detailed case study analysis:
-📄 Download Stockflow_Backend_CaseStudy.docx  (https://github.com/Omkark158/StockFlow/raw/main/Stockflow_Backend_CaseStudy.docx)
+📄 Stockflow_Backend_CaseStudy.pdf  (https://github.com/Omkark158/StockFlow/blob/main/Stockflow_Backend_CaseStudy.pdf)
 
 
 It covers:
