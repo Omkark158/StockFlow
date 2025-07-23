@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/products', productRoutes);
-app.use('/api/companies', alertRoutes);
+app.use('/api', alertRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

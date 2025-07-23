@@ -11,7 +11,7 @@ const getLowStockAlerts = async (req, res) => {
       return res.status(404).json({ error: 'Company not found' });
     }
 
-    // Complex query to get low stock alerts
+    // query to get low stock alerts
     const alertsQuery = `
       SELECT 
         p.id as product_id,
@@ -38,11 +38,11 @@ const getLowStockAlerts = async (req, res) => {
         SELECT 
           productId,
           warehouseId,
-          AVG(quantity_sold) as avg_daily_sales
-        FROM sales_history 
+          AVG(quantitySold) as avg_daily_sales
+        FROM sales_history
         WHERE created_at >= DATE_SUB(NOW(), INTERVAL 30 DAY)
         GROUP BY productId, warehouseId
-        HAVING AVG(quantity_sold) > 0
+        HAVING AVG(quantitySold) > 0
       ) sales ON p.id = sales.productId AND w.id = sales.warehouseId
       WHERE w.companyId = :companyId
         AND i.quantity <= p.lowStockThreshold
@@ -51,6 +51,7 @@ const getLowStockAlerts = async (req, res) => {
       ORDER BY (i.quantity / p.lowStockThreshold) ASC, p.name
     `;
 
+    // ✅ Run the query
     const alerts = await db.sequelize.query(alertsQuery, {
       replacements: { companyId: company_id },
       type: QueryTypes.SELECT
@@ -66,11 +67,13 @@ const getLowStockAlerts = async (req, res) => {
       current_stock: alert.current_stock,
       threshold: alert.threshold,
       days_until_stockout: alert.days_until_stockout,
-      supplier: alert.supplier_id ? {
-        id: alert.supplier_id,
-        name: alert.supplier_name,
-        contact_email: alert.supplier_contact_email
-      } : null
+      supplier: alert.supplier_id
+        ? {
+            id: alert.supplier_id,
+            name: alert.supplier_name,
+            contact_email: alert.supplier_contact_email
+          }
+        : null
     }));
 
     res.json({
