@@ -51,7 +51,7 @@ const getLowStockAlerts = async (req, res) => {
       ORDER BY (i.quantity / p.lowStockThreshold) ASC, p.name
     `;
 
-    // ✅ Run the query
+    // Run the query
     const alerts = await db.sequelize.query(alertsQuery, {
       replacements: { companyId: company_id },
       type: QueryTypes.SELECT
