@@ -40,9 +40,12 @@ This repository includes a detailed case study analysis:
 
 It covers:
 
-* Code review & debugging
-* Database schema design
-* Low-stock alert API implementation business logic
+* Code review & debugging insights
+* Implementation of low-stock alert API
+* Core business logic and implementation approach
+
+
+ Low-stock alert API implementation business logic
 
 ## Setup Instructions:
 
