@@ -43,9 +43,7 @@ It covers:
 * Code review & debugging insights
 * Implementation of low-stock alert API
 * Core business logic and implementation approach
-
-
- Low-stock alert API implementation business logic
+* Low-stock alert API implementation business logic
 
 ## Setup Instructions:
 
