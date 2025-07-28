@@ -17,13 +17,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    created_at: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
   }, {
     tableName: 'sales_history',
-    timestamps: false, 
+    timestamps: true, 
   });
 
   return SalesHistory;

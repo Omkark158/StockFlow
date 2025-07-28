@@ -37,6 +37,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     tableName: 'products',
+    timestamps:true,
     indexes: [
       { fields: ['sku'] },
       { fields: ['productType'] }

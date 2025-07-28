@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
       validate: { isEmail: true }
     }
   }, {
-    tableName: 'companies'
+    tableName: 'companies',
+    timestamps: true,
   });
   return Company;
 };

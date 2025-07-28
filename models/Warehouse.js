@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
       references: { model: 'companies', key: 'id' }
     }
   }, {
-    tableName: 'warehouses'
+    tableName: 'warehouses',
+    timestamps: true,
   });
   return Warehouse;
 };
