@@ -7,6 +7,7 @@ const Product = require('./Product')(sequelize, Sequelize.DataTypes);
 const Inventory = require('./Inventory')(sequelize, Sequelize.DataTypes);
 const Supplier = require('./Supplier')(sequelize, Sequelize.DataTypes);
 const ProductSupplier = require('./ProductSupplier')(sequelize, Sequelize.DataTypes);
+const SalesHistory = require('./salesHistory')(sequelize, Sequelize.DataTypes);
 
 // Define associations
 Company.hasMany(Warehouse, { foreignKey: 'companyId' });
@@ -20,6 +21,9 @@ Supplier.belongsToMany(Product, { through: ProductSupplier, foreignKey: 'supplie
 
 Inventory.belongsTo(Product, { foreignKey: 'productId' });
 Inventory.belongsTo(Warehouse, { foreignKey: 'warehouseId' });
+
+SalesHistory.belongsTo(Product, { foreignKey: 'productId' });
+SalesHistory.belongsTo(Warehouse, { foreignKey: 'warehouseId' });
 
 const db = {
   sequelize,

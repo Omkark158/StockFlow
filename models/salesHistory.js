@@ -1,6 +1,6 @@
 // models/SalesHistory.js
 module.exports = (sequelize, DataTypes) => {
-  const SalesHistor = sequelize.define('SalesHistor', {
+  const SalesHistory = sequelize.define('SalesHistory', {
     productId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -26,5 +26,5 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false, 
   });
 
-  return SalesHistor;
+  return SalesHistory;
 };
